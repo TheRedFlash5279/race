@@ -133,8 +133,18 @@ f f f f f f f f f f f f f f f f
 7 f f f 7 7 7 7 7 7 7 7 f f f 7 
 `
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    Plane.setVelocity(0, -60)
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (info.life() > 1) {
+        Plane.setVelocity(0, -150)
+    }
+    info.changeLifeBy(-1)
+})
+controller.B.onEvent(ControllerButtonEvent.Released, function () {
+    pause(2000)
+    Plane.setVelocity(0, 0)
+})
+controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
+    Plane.setVelocity(0, -105)
 })
 info.onCountdownEnd(function () {
     if (Math.percentChance(50)) {
@@ -142,6 +152,14 @@ info.onCountdownEnd(function () {
     } else {
         info.changeScoreBy(2)
     }
+})
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    pause(200)
+    Plane.setVelocity(0, 0)
+})
+controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
+    pause(100)
+    Plane.setVelocity(0, 0)
 })
 let Plane: Sprite = null
 Plane = sprites.create(img`
@@ -310,17 +328,18 @@ Plane.setPosition(122, 1580)
 Plane2.setPosition(153, 1580)
 Plane3.setPosition(87, 1580)
 info.startCountdown(3)
+info.setLife(3)
 game.onUpdateInterval(500, function () {
     if (info.score() == 1) {
-        Plane2.setVelocity(0, -60)
+        Plane2.setVelocity(0, -125)
     }
     if (info.score() == 2) {
-        Plane2.setVelocity(0, -35)
+        Plane2.setVelocity(0, -75)
     }
     if (info.score() == 1) {
-        Plane3.setVelocity(0, -50)
+        Plane3.setVelocity(0, -85)
     }
     if (info.score() == 2) {
-        Plane3.setVelocity(0, -75)
+        Plane3.setVelocity(0, -110)
     }
 })
