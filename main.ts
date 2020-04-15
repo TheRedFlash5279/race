@@ -345,7 +345,7 @@ tiles.setTilemap(tiles.createTilemap(
 . . . . 2 . 2 . 2 . 2 . . . . . 
 . . . . 2 . 2 . 2 . 2 . . . . . 
 `,
-            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7],
+            [myTiles.tile0,myTiles.tile1,myTiles.tile2,myTiles.tile3,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,sprites.vehicle.roadTurn1,sprites.builtin.crowd2,sprites.builtin.crowd3],
             TileScale.Sixteen
         ))
 scene.cameraFollowSprite(Plane)
