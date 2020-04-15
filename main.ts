@@ -157,10 +157,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         Plane.setVelocity(0, -150)
         info.changeLifeBy(-1)
     }
-    if (info.life() > 2) {
-        Plane.setVelocity(0, -150)
-        info.changeLifeBy(-1)
-    }
 })
 scene.onOverlapTile(SpriteKind.Enemy, myTiles.tile7, function (sprite, location) {
     game.splash("You Lose.")
@@ -172,10 +168,7 @@ controller.B.onEvent(ControllerButtonEvent.Released, function () {
 })
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     if (info.score() == 1) {
-        Plane.setVelocity(0, -110)
-    }
-    if (info.score() == 2) {
-        Plane.setVelocity(0, -110)
+        Plane.setVelocity(0, -105)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile7, function (sprite, location) {
@@ -183,11 +176,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile7, function (sprite, location
     game.reset()
 })
 info.onCountdownEnd(function () {
-    if (Math.percentChance(50)) {
-        info.changeScoreBy(1)
-    } else {
-        info.changeScoreBy(2)
-    }
+    info.changeScoreBy(1)
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     pause(200)
@@ -367,15 +356,7 @@ info.startCountdown(3)
 info.setLife(3)
 game.onUpdateInterval(500, function () {
     if (info.score() == 1) {
-        Plane2.setVelocity(0, -120)
-    }
-    if (info.score() == 2) {
-        Plane2.setVelocity(0, -95)
-    }
-    if (info.score() == 1) {
-        Plane3.setVelocity(0, -99)
-    }
-    if (info.score() == 2) {
-        Plane3.setVelocity(0, -115)
+        Plane2.setVelocity(0, Math.randomRange(-90, -125))
+        Plane3.setVelocity(0, Math.randomRange(-90, -125))
     }
 })
